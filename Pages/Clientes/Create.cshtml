@@ -1,0 +1,36 @@
+@page
+@model ps.Pages_Clientes.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Cadastro de Clientes.</h1>
+
+<h4>Informações do Cliente:</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Cliente.NmCliente" class="control-label"></label>
+                <input asp-for="Cliente.NmCliente" class="form-control" />
+                <span asp-validation-for="Cliente.NmCliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cliente.Cidade" class="control-label"></label>
+                <input asp-for="Cliente.Cidade" class="form-control" />
+                <span asp-validation-for="Cliente.Cidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Cadastrar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <button type="button" onclick="window.location.href = '@Url.Page("Index")'" class="btn btn-warning mt-3">Retornar</button>
+</div>
+

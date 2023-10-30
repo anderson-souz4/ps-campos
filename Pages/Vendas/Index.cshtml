@@ -1,0 +1,60 @@
+@page
+@model ps.Pages_Vendas.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Vendas</h1>
+
+<p>
+    <button type="button" onclick="window.location.href = '@Url.Page("Create")'" class="btn btn-primary">Cadastrar</button>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Venda[0].IdCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Venda[0].IdProduto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Venda[0].QtdVenda)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Venda[0].VlrUnitarioVenda)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Venda[0].DthVenda)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Venda) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdProduto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QtdVenda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VlrUnitarioVenda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DthVenda)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Detalhes</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
